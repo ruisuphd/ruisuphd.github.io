@@ -7,6 +7,7 @@ Live at **[www.ruisuphd.com](https://www.ruisuphd.com)** (GitHub Pages).
 ## Structure
 
 - `index.html` — single-page site, plain HTML/CSS, no build step
+- `zh/index.html` — Chinese (简体中文) version, linked via the EN/中文 nav toggle
 - `photo.jpg` — profile photo
 - `papers/` — downloadable PDFs of publications
 - `certs/` — downloadable PDFs of Coursera certificates
