@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Rui Su — AI Engineer, Researcher, Founder</title>
+  <meta name="description" content="Rui Su — AI Engineer, PhD Candidate at Maynooth University, and Founder of Intonation Labs. Specialising in real-time ML systems, ensemble prediction, and production AI deployment.">
+  <meta property="og:title" content="Rui Su — AI Engineer, Researcher, Founder">
+  <meta property="og:description" content="AI Engineer, PhD Candidate, and Founder of Intonation Labs. Building production AI systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.ruisuphd.com">
+  <meta property="og:image" content="https://www.ruisuphd.com/photo.jpg">
+  <link rel="canonical" href="https://www.ruisuphd.com">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232563eb'/><text x='16' y='22.5' font-size='17' font-family='-apple-system,sans-serif' font-weight='600' fill='white' text-anchor='middle'>R</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Rui Su",
+    "url": "https://www.ruisuphd.com",
+    "image": "https://www.ruisuphd.com/photo.jpg",
+    "jobTitle": "AI Engineer, PhD Candidate, Founder",
+    "worksFor": { "@type": "Organization", "name": "Intonation Labs Pte. Ltd.", "url": "https://www.intonationlabs.com" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Maynooth University" },
+      { "@type": "CollegeOrUniversity", "name": "University of California, Davis" }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/rui-su-phd",
+      "https://github.com/ruisuphd",
+      "https://www.intonationlabs.com"
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --c-text: #0a0a0a;
+      --c-text-secondary: #52525b;
+      --c-text-tertiary: #71717a;
+      --c-bg: #ffffff;
+      --c-bg-alt: #fafafa;
+      --c-bg-subtle: #f4f4f5;
+      --c-border: #e4e4e7;
+      --c-border-light: #f4f4f5;
+      --c-accent: #2563eb;
+      --c-accent-dark: #1d4ed8;
+      --c-accent-light: #eff6ff;
+      --c-green: #16a34a;
+      --c-green-light: #f0fdf4;
+      --c-amber: #b45309;
+      --c-amber-light: #fffbeb;
+      --f-heading: "Outfit", system-ui, -apple-system, sans-serif;
+      --f-body: "Inter", system-ui, -apple-system, sans-serif;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,.06);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,.08);
+      --ease: cubic-bezier(.16, 1, .3, 1);
+      --max-w: 760px;
+      --nav-h: 72px;
+      color-scheme: light;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
+
+    body {
+      font-family: var(--f-body);
+      background: var(--c-bg);
+      color: var(--c-text);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: var(--c-accent); text-decoration: none; transition: color .15s var(--ease); }
+    a:hover { color: var(--c-accent-dark); }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,.82);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--c-border-light);
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-h);
+    }
+    .logo {
+      font-family: var(--f-heading);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--c-text);
+      letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      color: var(--c-text-tertiary);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: var(--c-text); }
+
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+    .hamburger span {
+      display: block; width: 20px; height: 2px; background: var(--c-text-secondary);
+      margin: 4px 0; border-radius: 2px; transition: .2s;
+    }
+
+    /* ---- LAYOUT ---- */
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    section { padding: 88px 0; border-bottom: 1px solid var(--c-border-light); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--c-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 28px;
+    }
+
+    h1, h2, h3 { font-family: var(--f-heading); }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 54px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+
+    h2 { font-size: 19px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+
+    p { margin-bottom: 14px; }
+    .muted { color: var(--c-text-secondary); }
+    .dim { color: var(--c-text-tertiary); }
+
+    /* ---- HERO ---- */
+    #hero { padding-top: calc(var(--nav-h) + 72px); padding-bottom: 96px; }
+
+    .hero-tagline {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--c-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+
+    .hero-top { display: flex; align-items: center; gap: 32px; margin-bottom: 28px; }
+    .hero-photo {
+      width: 116px; height: 116px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 1px solid var(--c-border);
+      box-shadow: var(--shadow-md);
+      flex-shrink: 0;
+    }
+
+    .hero-lede {
+      font-size: 18px;
+      color: var(--c-text-secondary);
+      max-width: 620px;
+      margin-bottom: 28px;
+    }
+
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 10px 22px;
+      font-size: 14px;
+      color: var(--c-text-tertiary);
+      margin-bottom: 36px;
+    }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 7px; }
+    .hero-meta svg { width: 15px; height: 15px; stroke: var(--c-text-tertiary); fill: none; stroke-width: 1.6; flex-shrink: 0; }
+    .status-open { color: var(--c-green); font-weight: 500; }
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--c-green);
+      box-shadow: 0 0 0 3px rgba(22,163,74,.15);
+    }
+
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all .2s var(--ease);
+      border: 1px solid var(--c-border);
+      color: var(--c-text-secondary);
+      background: var(--c-bg);
+    }
+    .btn:hover { border-color: var(--c-text-tertiary); color: var(--c-text); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+    .btn-primary {
+      background: var(--c-accent);
+      border-color: var(--c-accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--c-accent-dark); border-color: var(--c-accent-dark); color: #fff; box-shadow: var(--shadow-md); }
+    .btn svg { width: 15px; height: 15px; }
+
+    /* ---- TIMELINE ---- */
+    .timeline-item { padding: 26px 0; border-bottom: 1px solid var(--c-border-light); }
+    .timeline-item:first-of-type { padding-top: 0; }
+    .timeline-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .timeline-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .timeline-org { font-size: 14px; color: var(--c-text-tertiary); margin-bottom: 10px; }
+    .timeline-date {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--c-text-tertiary);
+      background: var(--c-bg-subtle);
+      padding: 2px 12px;
+      border-radius: 9999px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .timeline-desc { color: var(--c-text-secondary); font-size: 15px; }
+    .timeline-desc ul { list-style: none; margin-top: 6px; }
+    .timeline-desc li { padding-left: 18px; position: relative; margin-bottom: 7px; }
+    .timeline-desc li::before {
+      content: '';
+      position: absolute; left: 2px; top: 11px;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--c-accent);
+      opacity: .5;
+    }
+
+    /* ---- SKILLS ---- */
+    .skills-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+    .skill-category h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--c-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      font-size: 13.5px;
+      font-weight: 450;
+      color: var(--c-text-secondary);
+      padding: 6px 14px;
+      background: var(--c-bg-alt);
+      border: 1px solid var(--c-border);
+      border-radius: 9999px;
+    }
+
+    /* ---- PROJECTS ---- */
+    .project-card {
+      padding: 28px;
+      background: var(--c-bg);
+      border: 1px solid var(--c-border);
+      border-radius: 16px;
+      margin-bottom: 18px;
+      transition: all .25s var(--ease);
+    }
+    .project-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: #d4d4d8; }
+
+    .project-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 10px; flex-wrap: wrap; gap: 8px;
+    }
+    .badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 12px;
+      border-radius: 9999px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .badge-live { background: var(--c-green-light); color: var(--c-green); }
+    .badge-research { background: var(--c-accent-light); color: var(--c-accent); }
+    .badge-dev { background: var(--c-amber-light); color: var(--c-amber); }
+    .badge-published { background: var(--c-accent-light); color: var(--c-accent); }
+    .badge-accepted { background: var(--c-green-light); color: var(--c-green); }
+    .badge-forthcoming { background: var(--c-bg-subtle); color: var(--c-text-tertiary); }
+
+    .project-desc { color: var(--c-text-secondary); font-size: 15px; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+    .project-tech span {
+      font-size: 12.5px;
+      color: var(--c-text-tertiary);
+      padding: 3px 10px;
+      background: var(--c-bg-alt);
+      border: 1px solid var(--c-border-light);
+      border-radius: 6px;
+    }
+    .project-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 16px; font-size: 14px; font-weight: 500; }
+    .project-link .arrow { transition: transform .2s var(--ease); }
+    .project-link:hover .arrow { transform: translateX(3px); }
+
+    /* ---- PUBLICATIONS ---- */
+    .pub-item { padding: 24px 0; border-bottom: 1px solid var(--c-border-light); }
+    .pub-item:first-of-type { padding-top: 0; }
+    .pub-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .pub-item h3 { font-size: 16.5px; line-height: 1.45; margin-bottom: 8px; }
+    .pub-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 14px; color: var(--c-text-tertiary); }
+    .pub-authors { font-size: 13.5px; color: var(--c-text-tertiary); margin-top: 6px; }
+    .pub-download {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 12px;
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 7px 16px;
+      border: 1px solid var(--c-border);
+      border-radius: 9999px;
+      color: var(--c-text-secondary);
+      transition: all .2s var(--ease);
+    }
+    .pub-download:hover { border-color: var(--c-accent); color: var(--c-accent); background: var(--c-accent-light); }
+    .pub-download svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+
+    /* ---- CERTIFICATIONS ---- */
+    .cert-note { font-size: 14px; color: var(--c-text-tertiary); margin-bottom: 28px; }
+    .cert-group { margin-bottom: 28px; }
+    .cert-group:last-child { margin-bottom: 0; }
+    .cert-group h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--c-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    a.cert-chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 13.5px;
+      font-weight: 450;
+      color: var(--c-text-secondary);
+      padding: 7px 15px;
+      background: var(--c-bg-alt);
+      border: 1px solid var(--c-border);
+      border-radius: 9999px;
+      transition: all .2s var(--ease);
+    }
+    a.cert-chip:hover {
+      border-color: var(--c-accent);
+      color: var(--c-accent);
+      background: var(--c-accent-light);
+    }
+    a.cert-chip svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.8; opacity: .65; flex-shrink: 0; }
+
+    /* ---- CONTACT ---- */
+    #contact { text-align: center; padding-bottom: 104px; }
+    #contact .section-label { margin-bottom: 20px; }
+    .contact-heading {
+      font-family: var(--f-heading);
+      font-size: clamp(26px, 5vw, 34px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    #contact .muted { max-width: 520px; margin: 0 auto 32px; }
+    #contact .btn-row { justify-content: center; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      border-top: 1px solid var(--c-border-light);
+      background: var(--c-bg-alt);
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--c-text-tertiary);
+    }
+    footer a { color: var(--c-text-tertiary); }
+    footer a:hover { color: var(--c-text); }
+
+    /* ---- MOBILE ---- */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: var(--nav-h); left: 0; right: 0;
+        background: rgba(255,255,255,.97);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--c-border);
+        padding: 20px 24px;
+        gap: 18px;
+      }
+      .hamburger { display: block; }
+      .hero-top { flex-direction: column; align-items: flex-start; gap: 24px; }
+      section { padding: 64px 0; }
+      #hero { padding-top: calc(var(--nav-h) + 48px); }
+      .timeline-header { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="logo">Rui Su</a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-top">
+    <img src="photo.jpg" alt="Portrait of Rui Su" class="hero-photo" width="116" height="116">
+    <div>
+      <div class="hero-tagline">AI Engineer &middot; PhD Researcher &middot; Founder</div>
+      <h1>Rui Su</h1>
+    </div>
+  </div>
+
+  <p class="hero-lede">
+    Machine Learning Engineer and PhD candidate at Maynooth University, specialising in real-time ML systems, ensemble prediction, and low-latency algorithm design. Founder &amp; Director of <a href="https://www.intonationlabs.com">Intonation Labs</a> (Singapore), building production AI systems and SaaS products.
+  </p>
+
+  <div class="hero-meta">
+    <span>
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Singapore / Dublin, Ireland
+    </span>
+    <span>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      PhD completion: Dec 2026
+    </span>
+    <span class="status-open">
+      <span class="status-dot"></span>
+      Open to work
+    </span>
+  </div>
+
+  <div class="btn-row">
+    <a href="mailto:rui@intonationlabs.com" class="btn btn-primary">
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Email me
+    </a>
+    <a href="https://www.linkedin.com/in/rui-su-phd" target="_blank" rel="noopener" class="btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/ruisuphd" target="_blank" rel="noopener" class="btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      GitHub
+    </a>
+    <a href="https://www.intonationlabs.com" target="_blank" rel="noopener" class="btn">
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      Intonation Labs
+    </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About</div>
+  <p class="muted">
+    I build production AI systems that work under real-world constraints &mdash; latency budgets, cost limits, and reliability requirements. My PhD research at Maynooth University focuses on real-time audio processing and adaptive tuning algorithms, combining self-supervised ML, ensemble prediction, and low-latency signal processing.
+  </p>
+  <p class="muted">
+    In February 2026, I founded <strong>Intonation Labs Pte. Ltd.</strong> in Singapore, operating a dual-engine model: B2B ML consulting for startups and SMEs, and development of SaaS products including IntonationAI (AI music coaching), IntoMeeting (real-time AI meeting co-pilot), and IntoMarketing (AI marketing automation).
+  </p>
+  <p class="muted">
+    My path from a B.A. in Psychology at UC Davis to a Computer Science PhD gives me a strong appreciation for human-centred design in technical systems. I am bilingual in English and Mandarin Chinese, and have lived and worked across three continents.
+  </p>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h2>Founder &amp; Director</h2>
+      <span class="timeline-date">Feb 2026 &ndash; Present</span>
+    </div>
+    <div class="timeline-org">Intonation Labs Pte. Ltd. &middot; Singapore</div>
+    <div class="timeline-desc">
+      <ul>
+        <li>Founded an AI consulting and product company operating a dual-engine model: B2B ML consulting for startups/SMEs and development of three SaaS products</li>
+        <li>Built and deployed IntonationAI &mdash; AI-powered vocal coaching platform using Vertex AI Gemini 2.0 Flash, Google Speech-to-Text v2, and Firebase</li>
+        <li>Built and deployed IntoMeeting &mdash; real-time AI meeting co-pilot with WebSocket streaming, RAG-powered knowledge base search, and live question detection</li>
+        <li>Architected production systems on GCP (Cloud Run, Firestore, Cloud Functions) with Stripe billing and Terraform IaC</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h2>Technology Engineer</h2>
+      <span class="timeline-date">Sep 2025 &ndash; Present</span>
+    </div>
+    <div class="timeline-org">Ubimus Conference &middot; Remote</div>
+    <div class="timeline-desc">
+      <ul>
+        <li>Designing and deploying the conference web platform for an international Ubiquitous Music research symposium</li>
+        <li>Building responsive web interfaces using modern JavaScript and web technologies</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h2>Firmware Test Engineer</h2>
+      <span class="timeline-date">Jun 2022 &ndash; Dec 2023</span>
+    </div>
+    <div class="timeline-org">Xunison &middot; Dublin, Ireland</div>
+    <div class="timeline-desc">
+      <ul>
+        <li>Tested and validated 5G router firmware for IoT home automation platform</li>
+        <li>Performed command-line debugging and configuration to optimise network performance</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Education</div>
+
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h2>PhD, Computer Science</h2>
+      <span class="timeline-date">2023 &ndash; Dec 2026</span>
+    </div>
+    <div class="timeline-org">Maynooth University, Ireland</div>
+    <div class="timeline-desc">
+      <p>Thesis: <em>Instant Harmonies &mdash; Enhancing Music with Web-Based Just Intonation Tuning Algorithms</em></p>
+      <p>Research: Low-latency audio processing, self-supervised key detection, ensemble ML prediction, production deployment. Supervisors: Prof. Joseph Timoney, Prof. Dami&aacute;n Keller.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h2>Higher Diploma, Software Development</h2>
+      <span class="timeline-date">2021 &ndash; 2022</span>
+    </div>
+    <div class="timeline-org">Maynooth University, Ireland</div>
+    <div class="timeline-desc">
+      <p>First Class Honours. Data Structures &amp; Algorithms, Database Systems, Web Development, Software Engineering.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h2>B.A., Psychology (Minor: Economics)</h2>
+      <span class="timeline-date">2015 &ndash; 2020</span>
+    </div>
+    <div class="timeline-org">University of California, Davis</div>
+    <div class="timeline-desc">
+      <p>Research methodology, statistical analysis, and experimental design.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Technical Skills</div>
+
+  <div class="skills-grid">
+    <div class="skill-category">
+      <h3>Machine Learning &amp; AI</h3>
+      <div class="chip-row">
+        <span class="chip">PyTorch</span>
+        <span class="chip">TensorFlow</span>
+        <span class="chip">scikit-learn</span>
+        <span class="chip">Hugging Face Transformers</span>
+        <span class="chip">RAG</span>
+        <span class="chip">LangChain</span>
+        <span class="chip">LangGraph</span>
+        <span class="chip">Agentic AI</span>
+        <span class="chip">Prompt Engineering</span>
+        <span class="chip">Ensemble Methods</span>
+        <span class="chip">Real-Time Inference</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h3>Full-Stack &amp; Cloud</h3>
+      <div class="chip-row">
+        <span class="chip">Python</span>
+        <span class="chip">JavaScript / TypeScript</span>
+        <span class="chip">Next.js</span>
+        <span class="chip">React</span>
+        <span class="chip">FastAPI</span>
+        <span class="chip">Flask</span>
+        <span class="chip">GCP</span>
+        <span class="chip">Firebase</span>
+        <span class="chip">Cloud Run</span>
+        <span class="chip">Vertex AI</span>
+        <span class="chip">Terraform</span>
+        <span class="chip">Docker</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h3>Audio &amp; Signal Processing</h3>
+      <div class="chip-row">
+        <span class="chip">WebAudio API</span>
+        <span class="chip">WebMIDI API</span>
+        <span class="chip">DSP</span>
+        <span class="chip">Audio Fingerprinting</span>
+        <span class="chip">Low-Latency Streaming</span>
+        <span class="chip">MIDI Protocol</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h3>Data &amp; Infrastructure</h3>
+      <div class="chip-row">
+        <span class="chip">NumPy</span>
+        <span class="chip">Pandas</span>
+        <span class="chip">SQL</span>
+        <span class="chip">Firestore</span>
+        <span class="chip">WebSocket</span>
+        <span class="chip">REST APIs</span>
+        <span class="chip">Git</span>
+        <span class="chip">Linux</span>
+        <span class="chip">Stripe API</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projects</div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h2>Instant Harmonies</h2>
+      <span class="badge badge-research">PhD Research</span>
+    </div>
+    <p class="project-desc">
+      Production-grade browser-native system for real-time music analysis and adaptive just intonation tuning. Combines ensemble ML prediction with low-latency audio processing (&lt;12ms per note).
+    </p>
+    <p class="project-desc">
+      Three research contributions: (1) S-KEY-Symbolic &mdash; first self-supervised local key detection for symbolic MIDI, (2) MTS/MPE dual-protocol real-time tuning with hierarchical fallback, (3) BACHI chord-aware JI tuning with 7-limit ratios from 99,251 extracted chord labels.
+    </p>
+    <div class="project-tech">
+      <span>PyTorch</span><span>Flask</span><span>WebMIDI</span><span>WebAudio</span><span>JavaScript</span><span>Parangonar</span>
+    </div>
+    <div>
+      <a class="project-link" href="https://github.com/ruisuphd/Instant_Harmonies" target="_blank" rel="noopener">GitHub <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h2>IntonationAI</h2>
+      <span class="badge badge-live">Live</span>
+    </div>
+    <p class="project-desc">
+      AI-powered vocal coaching platform providing personalised, real-time feedback on pitch accuracy, tone, timing, and technique. Uses Vertex AI Gemini 2.0 Flash and Google Speech-to-Text v2 for audio analysis.
+    </p>
+    <div class="project-tech">
+      <span>Next.js</span><span>FastAPI</span><span>Vertex AI</span><span>Speech-to-Text</span><span>Firebase</span><span>Stripe</span>
+    </div>
+    <div>
+      <a class="project-link" href="https://intonationai.app" target="_blank" rel="noopener">intonationai.app <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h2>IntoMeeting</h2>
+      <span class="badge badge-live">Live</span>
+    </div>
+    <p class="project-desc">
+      Real-time AI meeting co-pilot that runs alongside Google Meet or Zoom. Captures meeting audio via streaming transcription, detects client questions, and surfaces RAG-powered answers from the user's knowledge base in real time.
+    </p>
+    <div class="project-tech">
+      <span>FastAPI</span><span>WebSocket</span><span>Gemini</span><span>RAG</span><span>Firestore</span><span>Next.js</span><span>Stripe</span>
+    </div>
+    <div>
+      <a class="project-link" href="https://intomeeting.app" target="_blank" rel="noopener">intomeeting.app <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-header">
+      <h2>IntoMarketing</h2>
+      <span class="badge badge-dev">In Development</span>
+    </div>
+    <p class="project-desc">
+      AI-powered marketing automation platform with daily intelligence pipelines, automated post generation, lead qualification, and scheduled social publishing to LinkedIn and X.
+    </p>
+    <div class="project-tech">
+      <span>FastAPI</span><span>Cloud Functions</span><span>Vertex AI</span><span>Terraform</span><span>Next.js</span><span>Stripe</span>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-label">Publications</div>
+
+  <div class="pub-item">
+    <h3>A Multi-Protocol Adaptive Microtuning Architecture: Bridging MTS, MPE, and MIDI 2.0 for Struck-String Just Intonation</h3>
+    <div class="pub-meta">
+      <span>Sound and Music Computing Conference (SMC 2026)</span>
+      <span class="badge badge-accepted">Accepted</span>
+    </div>
+    <div class="pub-authors">R. Su, J. Timoney, D. Keller &middot; Camera-ready in preparation</div>
+    <a class="pub-download" href="papers/su-timoney-keller-2026-multi-protocol-adaptive-microtuning-smc.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF (accepted manuscript)
+    </a>
+  </div>
+
+  <div class="pub-item">
+    <h3>A Multi-Modal Adaptive Microtuning Architecture: Bridging MTS, MPE, and MIDI 2.0 for Real-Time Just Intonation in Ubiquitous Music</h3>
+    <div class="pub-meta">
+      <span>GIM 2026 &mdash; International Graduate Residency in Ubiquitous Music</span>
+      <span class="badge badge-forthcoming">Forthcoming</span>
+    </div>
+    <div class="pub-authors">R. Su, J. Timoney, D. Keller</div>
+  </div>
+
+  <div class="pub-item">
+    <h3>A Multi-Modal Adaptive Microtuning Architecture for Real-Time Just Intonation on the Web</h3>
+    <div class="pub-meta">
+      <span>3rd Symposium on Digital Art in Ireland, UCC &amp; Sample-Studios &middot; Apr 2026</span>
+      <span class="badge badge-forthcoming">Forthcoming</span>
+    </div>
+    <div class="pub-authors">R. Su, J. Timoney, D. Keller</div>
+  </div>
+
+  <div class="pub-item">
+    <h3>MIDI Adaptive Tuning Strategies by Means of AI-Based Struck-String Interaction in Ubimus</h3>
+    <div class="pub-meta">
+      <span>Ubimus Journal &middot; Aug 2025</span>
+      <span class="badge badge-published">Published</span>
+    </div>
+    <div class="pub-authors">R. Su, J. Timoney, D. Keller</div>
+    <a class="pub-download" href="papers/su-timoney-keller-2025-midi-adaptive-tuning-strategies.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF
+    </a>
+  </div>
+
+  <div class="pub-item">
+    <h3>Just Intonation and Inharmonicity in Struck-String Interaction</h3>
+    <div class="pub-meta">
+      <span>Ubimus Journal &middot; Oct 2024</span>
+      <span class="badge badge-published">Published</span>
+    </div>
+    <div class="pub-authors">R. Su, J. Timoney, D. Keller</div>
+    <a class="pub-download" href="papers/su-timoney-keller-2024-just-intonation-and-inharmonicity.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF
+    </a>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label">Certifications</div>
+  <p class="cert-note">Professional certificates and specialisations completed via Coursera. Click any certificate to view or download the PDF, each of which includes a Coursera verification link.</p>
+
+  <div class="cert-group">
+    <h3>IBM</h3>
+    <div class="chip-row">
+      <a class="cert-chip" href="certs/ibm-data-science.pdf" target="_blank" rel="noopener">Data Science <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+      <a class="cert-chip" href="certs/ibm-ai-developer.pdf" target="_blank" rel="noopener">AI Developer <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+      <a class="cert-chip" href="certs/ibm-ai-engineering.pdf" target="_blank" rel="noopener">AI Engineering <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+      <a class="cert-chip" href="certs/ibm-generative-ai-engineering.pdf" target="_blank" rel="noopener">Generative AI Engineering <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+      <a class="cert-chip" href="certs/ibm-rag-and-agentic-ai.pdf" target="_blank" rel="noopener">RAG and Agentic AI <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+      <a class="cert-chip" href="certs/ibm-devops-and-software-engineering.pdf" target="_blank" rel="noopener">DevOps &amp; Software Engineering <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+      <a class="cert-chip" href="certs/ibm-deep-learning-pytorch-keras-tensorflow.pdf" target="_blank" rel="noopener">Deep Learning (PyTorch, Keras, TF) <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+      <a class="cert-chip" href="certs/ibm-ai-product-manager.pdf" target="_blank" rel="noopener">AI Product Manager <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+      <a class="cert-chip" href="certs/ibm-hybrid-cloud-architect.pdf" target="_blank" rel="noopener">Hybrid Cloud Architect <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+      <a class="cert-chip" href="certs/generative-ai-for-growth-marketing.pdf" target="_blank" rel="noopener">Generative AI for Growth Marketing <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+    </div>
+  </div>
+
+  <div class="cert-group">
+    <h3>AWS &amp; Cloud</h3>
+    <div class="chip-row">
+      <a class="cert-chip" href="certs/aws-generative-ai-applications.pdf" target="_blank" rel="noopener">AWS Generative AI Applications <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+      <a class="cert-chip" href="certs/aws-solutions-architect-professional-sap-c02.pdf" target="_blank" rel="noopener">AWS Solutions Architect Professional, Exam Prep (SAP-C02) <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+    </div>
+  </div>
+
+  <div class="cert-group">
+    <h3>Duke University</h3>
+    <div class="chip-row">
+      <a class="cert-chip" href="certs/duke-llmops.pdf" target="_blank" rel="noopener">Large Language Model Operations (LLMOps) <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+      <a class="cert-chip" href="certs/duke-introduction-to-rag.pdf" target="_blank" rel="noopener">Introduction to RAG <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+    </div>
+  </div>
+
+  <div class="cert-group">
+    <h3>Imperial College London</h3>
+    <div class="chip-row">
+      <a class="cert-chip" href="certs/imperial-mathematics-for-machine-learning.pdf" target="_blank" rel="noopener">Mathematics for Machine Learning <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+    </div>
+  </div>
+
+  <div class="cert-group">
+    <h3>Coursera</h3>
+    <div class="chip-row">
+      <a class="cert-chip" href="certs/coursera-deep-learning-engineering.pdf" target="_blank" rel="noopener">Deep Learning Engineering <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+      <a class="cert-chip" href="certs/coursera-python-scripting-for-devops.pdf" target="_blank" rel="noopener">Python Scripting for DevOps <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <div class="contact-heading">Let's build something together.</div>
+  <p class="muted">
+    I am open to ML engineering roles, AI consulting engagements, and research collaborations. Based in Singapore, open to on-site, hybrid, or remote.
+  </p>
+  <div class="btn-row">
+    <a href="mailto:rui@intonationlabs.com" class="btn btn-primary">
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      rui@intonationlabs.com
+    </a>
+    <a href="https://www.linkedin.com/in/rui-su-phd" target="_blank" rel="noopener" class="btn">LinkedIn</a>
+    <a href="https://github.com/ruisuphd" target="_blank" rel="noopener" class="btn">GitHub</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  &copy; 2026 Rui Su &middot; <a href="https://www.intonationlabs.com" target="_blank" rel="noopener">Intonation Labs</a> &middot; Built with plain HTML &amp; CSS
+</footer>
+
+<script>
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
