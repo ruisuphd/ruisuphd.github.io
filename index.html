@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
   <title>Rui Su — AI Engineer, Researcher, Founder</title>
   <meta name="description" content="Rui Su — AI Engineer, PhD Candidate at Maynooth University, and Founder of Intonation Labs. Specialising in real-time ML systems, ensemble prediction, and production AI deployment.">
   <meta property="og:title" content="Rui Su — AI Engineer, Researcher, Founder">
@@ -107,21 +108,29 @@
       color: var(--c-text);
       letter-spacing: -0.02em;
     }
-    .nav-links { display: flex; gap: 28px; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
       color: var(--c-text-tertiary);
       font-size: 14px;
       font-weight: 500;
+      line-height: 1;
     }
     .nav-links a:hover { color: var(--c-text); }
 
     .lang-switch {
-      font-size: 13px !important;
-      padding: 4px 14px;
+      display: inline-flex;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1;
+      color: var(--c-text-tertiary);
+      padding: 7px 14px;
       border: 1px solid var(--c-border);
       border-radius: 9999px;
+      transition: all .15s var(--ease);
     }
-    .lang-switch:hover { border-color: var(--c-text-tertiary); }
+    .lang-switch:hover { border-color: var(--c-text-tertiary); color: var(--c-text); }
 
     .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
     .hamburger span {
@@ -428,17 +437,19 @@
 <nav>
   <div class="nav-inner">
     <a href="#hero" class="logo">Rui Su</a>
-    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#publications">Publications</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
       <a href="/zh/" class="lang-switch" lang="zh-CN">中文</a>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false" onclick="const n=document.querySelector('.nav-links');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
@@ -478,6 +489,10 @@
     <a href="mailto:rui@intonationlabs.com" class="btn btn-primary">
       <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       Email me
+    </a>
+    <a href="Rui-Su-CV.pdf" download="Rui-Su-CV.pdf" class="btn">
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+      Download CV
     </a>
     <a href="https://www.linkedin.com/in/rui-su-phd" target="_blank" rel="noopener" class="btn">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
@@ -686,7 +701,7 @@
       <span class="badge badge-research">PhD Research</span>
     </div>
     <p class="project-desc">
-      Production-grade browser-native system for real-time music analysis and adaptive just intonation tuning. Combines ensemble ML prediction with low-latency audio processing (&lt;12ms per note).
+      Production-grade browser-native system for real-time music analysis and adaptive just intonation tuning. Combines ensemble ML prediction with low-latency audio processing (~1.7&thinsp;ms median / ~2.2&thinsp;ms p99 end-to-end latency).
     </p>
     <p class="project-desc">
       Three research contributions: (1) S-KEY-Symbolic &mdash; first self-supervised local key detection for symbolic MIDI, (2) MTS/MPE dual-protocol real-time tuning with hierarchical fallback, (3) BACHI chord-aware JI tuning with 7-limit ratios from 99,251 extracted chord labels.
@@ -694,7 +709,8 @@
     <div class="project-tech">
       <span>PyTorch</span><span>Flask</span><span>WebMIDI</span><span>WebAudio</span><span>JavaScript</span><span>Parangonar</span>
     </div>
-    <div>
+    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+      <a class="project-link" href="https://ruisuphd.github.io/instant-harmonies-demo/" target="_blank" rel="noopener">Live demo <span class="arrow">&rarr;</span></a>
       <a class="project-link" href="https://github.com/ruisuphd/Instant_Harmonies" target="_blank" rel="noopener">GitHub <span class="arrow">&rarr;</span></a>
     </div>
   </div>
@@ -769,12 +785,12 @@
     <h3>A Multi-Protocol Adaptive Microtuning Architecture: Bridging MTS, MPE, and MIDI 2.0 for Struck-String Just Intonation</h3>
     <div class="pub-meta">
       <span>Sound and Music Computing Conference (SMC 2026)</span>
-      <span class="badge badge-accepted">Accepted</span>
+      <span class="badge badge-published">Published</span>
     </div>
     <div class="pub-authors">R. Su, J. Timoney, D. Keller</div>
     <a class="pub-download" href="papers/su-timoney-keller-2026-multi-protocol-adaptive-microtuning-smc.pdf" download>
       <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Download PDF (camera-ready)
+      Download PDF
     </a>
   </div>
 
@@ -892,6 +908,7 @@
       <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       rui@intonationlabs.com
     </a>
+    <a href="Rui-Su-CV.pdf" download="Rui-Su-CV.pdf" class="btn">Download CV</a>
     <a href="https://www.linkedin.com/in/rui-su-phd" target="_blank" rel="noopener" class="btn">LinkedIn</a>
     <a href="https://github.com/ruisuphd" target="_blank" rel="noopener" class="btn">GitHub</a>
   </div>
@@ -907,6 +924,7 @@
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       document.querySelector('.nav-links').classList.remove('open');
+      document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
     });
   });
 </script>
